@@ -17,6 +17,7 @@ ElementClass.prototype.add = function(className) {
   if (!el) return
   if (el.className === "") return el.className = className
   var classes = el.className.split(' ')
+  if (classes.indexOf(className) > -1) return classes
   classes.push(className)
   el.className = classes.join(' ')
   return classes
