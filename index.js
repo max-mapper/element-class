@@ -33,3 +33,10 @@ ElementClass.prototype.remove = function(className) {
   el.className = classes.join(' ')
   return classes
 }
+
+ElementClass.prototype.has = function(className) {
+  var el = this.el
+  if (!el) return
+  var classes = el.className.split(' ')
+  return classes.indexOf(className) > -1
+}
