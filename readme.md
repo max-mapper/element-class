@@ -1,13 +1,13 @@
 # element-class
 
-exactly like .addClass, .removeClass and .hasClass from jquery but with dependencies
+exactly like .addClass, .removeClass and .hasClass from jquery but without dependencies
 
 ```
 npm install element-class
 ```
 
 ```javascript
-var elementClass = require('elementClass')
+var elementClass = require('element-class')
 
 // get an element
 var foo = document.querySelector('.foo')
