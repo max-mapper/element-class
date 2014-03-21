@@ -2,7 +2,7 @@
 
 like .addClass, .removeClass and .hasClass from jquery but without dependencies
 
-[![testling badge](https://ci.testling.com/maxogden/remove-elements.png)](https://ci.testling.com/maxogden/remove-elements)
+[![testling badge](https://ci.testling.com/maxogden/element-class.png)](https://ci.testling.com/maxogden/element-class)
 
 ```
 npm install element-class
