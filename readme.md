@@ -1,6 +1,8 @@
 # element-class
 
-exactly like .addClass, .removeClass and .hasClass from jquery but without dependencies
+like .addClass, .removeClass and .hasClass from jquery but without dependencies
+
+[![testling badge](https://ci.testling.com/maxogden/remove-elements.png)](https://ci.testling.com/maxogden/remove-elements)
 
 ```
 npm install element-class
