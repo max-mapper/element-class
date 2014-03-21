@@ -6,7 +6,10 @@ function ElementClass(opts) {
   if (!(this instanceof ElementClass)) return new ElementClass(opts)
   var self = this
   if (!opts) opts = {}
-  if (opts instanceof HTMLElement) opts = {el: opts}
+
+  // similar doing instanceof HTMLElement but works in IE8
+  if (opts.nodeType) opts = {el: opts}
+
   this.opts = opts
   this.el = opts.el || document.body
   if (typeof this.el !== 'object') this.el = document.querySelector(this.el)
