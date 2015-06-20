@@ -22,31 +22,38 @@ function ElementClass(opts) {
   if (typeof this.el !== 'object') this.el = document.querySelector(this.el)
 }
 
-ElementClass.prototype.add = function(className) {
+ElementClass.prototype.add = function(newName) {
   var el = this.el
   if (!el) return
-  if (el.className === "") return el.className = className
-  var classes = el.className.split(' ')
-  if (indexOf(classes, className) > -1) return classes
-  classes.push(className)
-  el.className = classes.join(' ')
+  var className = getClass(el)
+  if (className === "") return el.setAttribute('class', newName)
+  var classes = className.split(' ')
+  if (indexOf(classes, newName) > -1) return classes
+  classes.push(newName)
+  el.setAttribute('class', classes.join(' '))
   return classes
 }
 
-ElementClass.prototype.remove = function(className) {
+ElementClass.prototype.remove = function(name) {
   var el = this.el
   if (!el) return
-  if (el.className === "") return
-  var classes = el.className.split(' ')
+  var className = getClass(el)
+  if (className === "") return []
+  var classes = className.split(' ')
   var idx = indexOf(classes, className)
   if (idx > -1) classes.splice(idx, 1)
-  el.className = classes.join(' ')
+  el.setAttribute('class', classes.join(' '))
   return classes
 }
 
+ElementClass.prototype.contains =
 ElementClass.prototype.has = function(className) {
   var el = this.el
   if (!el) return
-  var classes = el.className.split(' ')
+  var classes = getClass(el).split(' ')
   return indexOf(classes, className) > -1
+}
+
+function getClass(el) {
+  return el.getAttribute('class') || ''
 }

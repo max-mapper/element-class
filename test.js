@@ -1,14 +1,28 @@
 var test = require('tape')
 var elementClass = require('./')
 
-test('adds and removes a class', function(t) {
+test('add/remove/has for a html class', function(t) {
   var div = document.createElement('div')
   document.body.appendChild(div)
+  t.ok(!elementClass(div).has('foo'), 'has no class at first')
   elementClass(div).add('foo')
   var el = document.querySelectorAll('.foo')
-  t.equal(el.length, 1)
+  t.equal(el.length, 1, 'add class')
+  t.ok(elementClass(div).has('foo'), 'has class now')
   elementClass(div).remove('foo')
   el = document.querySelectorAll('.foo')
-  t.equal(el.length, 0)
+  t.equal(el.length, 0, 'remove class')
+  t.end()
+})
+
+test('add/remove/has for a svg class', function (t) {
+  var svg = document.createElement('svg')
+  document.body.appendChild(svg)
+  t.ok(!elementClass(svg).has('bar'), 'has no class at first')
+  elementClass(svg).add('bar')
+  t.ok(elementClass(svg).has('bar'), 'has class now')
+  t.equal(svg.getAttribute('class'), 'bar', 'class exists')
+  elementClass(svg).remove('bar')
+  t.equal(svg.getAttribute('class'), '', 'remove class')
   t.end()
 })
