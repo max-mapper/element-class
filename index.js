@@ -50,3 +50,10 @@ ElementClass.prototype.has = function(className) {
   var classes = el.className.split(' ')
   return indexOf(classes, className) > -1
 }
+
+ElementClass.prototype.toggle = function(className) {
+  var el = this.el
+  if (!el) return
+  if (this.has(className)) this.remove(className)
+  else this.add(className)
+}

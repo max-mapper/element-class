@@ -1,6 +1,6 @@
 # element-class
 
-like .addClass, .removeClass and .hasClass from jquery but without dependencies
+like .addClass, .removeClass .toggleClass and .hasClass from jquery but without dependencies
 
 [![testling badge](https://ci.testling.com/maxogden/element-class.png)](https://ci.testling.com/maxogden/element-class)
 
@@ -19,6 +19,9 @@ elementClass(foo).remove('foo')
 
 // add a class
 elementClass(foo).add('foo')
+
+// toggle a class
+elementClass(foo).toggle('foo')
 
 // check if element has a class
 elementClass(foo).has('foo')
