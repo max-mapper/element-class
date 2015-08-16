@@ -13,7 +13,7 @@
   "homepage": "https://github.com/maxogden/element-class",
   "main": "index.js",
   "devDependencies": {
-    "tape": "^2.10.2"
+    "tape": "^4.2.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
