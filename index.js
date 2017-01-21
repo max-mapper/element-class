@@ -51,9 +51,15 @@ ElementClass.prototype.has = function(className) {
   return indexOf(classes, className) > -1
 }
 
-ElementClass.prototype.toggle = function(className) {
+ElementClass.prototype.toggle = function(className, state) {
   var el = this.el
   if (!el) return
-  if (this.has(className)) this.remove(className)
-  else this.add(className)
+  if (typeof state === "boolean") {
+    if (state) this.add(className)
+    else this.remove(className)
+  } else {
+    if (this.has(className)) this.remove(className)
+    else this.add(className)
+  }
 }
+
